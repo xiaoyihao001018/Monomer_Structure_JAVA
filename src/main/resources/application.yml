@@ -11,6 +11,12 @@ spring:
     init:
       mode: always
       schema-locations: classpath:db/init.sql
+  swagger:
+    ui:
+      path: /swagger-ui.html
+    api-docs:
+      path: /v3/api-docs
+    packages-to-scan: org.example.controller
 
 mybatis-plus:
   configuration:
@@ -24,5 +30,5 @@ mybatis-plus:
 
 logging:
   level:
-    org.springframework: DEBUG
-    com.baomidou: DEBUG
+    org.springframework: INFO
+    com.baomidou: INFO
