@@ -17,6 +17,8 @@ spring:
     api-docs:
       path: /v3/api-docs
     packages-to-scan: org.example.controller
+  profiles:
+    active: dev
 
 mybatis-plus:
   configuration:
@@ -30,5 +32,10 @@ mybatis-plus:
 
 logging:
   level:
-    org.springframework: INFO
-    com.baomidou: INFO
+    root: info
+    org.example: debug
+  file:
+    name: logs/application.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n"

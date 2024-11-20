@@ -1,6 +1,7 @@
 # 笔记
 
-## 1. @Tag
+## 常用注释解析
+### 1. @Tag
 > 接口分组注解,用于Controller类上
 
 - **作用**: 对接口进行分组和描述
@@ -13,7 +14,7 @@
   }
   ```
 
-## 2. @Operation
+### 2. @Operation
 > 接口描述注解,用于Controller方法上
 
 - **作用**: 描述接口的功能
@@ -26,7 +27,7 @@
   }
   ```
 
-## 3. @Schema
+### 3. @Schema
 > 实体描述注解,用于实体类及其字段
 
 - **作用**: 描述数据模型的属性
@@ -37,7 +38,7 @@
   private Long id;
   ```
 
-## 4. @PathVariable
+### 4. @PathVariable
 > Spring MVC注解,用于获取URL路径参数
 
 - **作用**: 获取URL中的路径变量
@@ -49,7 +50,7 @@
   }
   ```
 
-## 5. @RequestBody
+### 5. @RequestBody
 > Spring MVC注解,用于接收请求体数据
 
 - **作用**: 接收POST/PUT请求的JSON数据
@@ -60,3 +61,62 @@
   public boolean createUser(@RequestBody User user) {
   }
   ```
+
+## 6. SLF4J 日志使用
+> 日志门面框架，提供统一的日志记录API
+
+### 基础用法
+- **方式一**：使用Lombok注解（推荐）
+  ```java
+  @Slf4j
+  public class UserService {
+      public void method() {
+          log.info("信息");
+      }
+  }
+  ```
+
+- **方式二**：手动声明
+  ```java
+  private static final Logger log = LoggerFactory.getLogger(UserService.class);
+  ```
+
+### 日志级别（从低到高）
+- **TRACE**：追踪信息，最详细
+- **DEBUG**：调试信息，开发使用
+- **INFO**：一般信息，默认级别
+- **WARN**：警告信息，潜在问题
+- **ERROR**：错误信息，需要处理
+
+### 常用方法
+- **基本打印**：
+  ```java
+  log.debug("调试信息");
+  log.info("一般信息");
+  log.warn("警告信息");
+  log.error("错误信息");
+  ```
+
+- **占位符使用**：
+  ```java
+  String name = "张三";
+  int age = 18;
+  log.info("用户名: {}, 年龄: {}", name, age);
+  ```
+
+- **异常记录**：
+  ```java
+  try {
+      // 业务代码
+  } catch (Exception e) {
+      log.error("操作失败: {}", e.getMessage(), e);
+  }
+  ```
+
+### 使用规范
+- **选择合适级别**：
+  - ERROR：系统错误，影响功能
+  - WARN：潜在问题，需要关注
+  - INFO：重要业务信息
+  - DEBUG：调试信息，开发使用
+  - TRACE：详细信息，很少使用
