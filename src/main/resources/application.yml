@@ -19,6 +19,17 @@ spring:
     packages-to-scan: org.example.controller
   profiles:
     active: dev
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 10000
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
 
 mybatis-plus:
   configuration:

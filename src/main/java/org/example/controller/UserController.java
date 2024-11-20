@@ -42,9 +42,4 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    @GetMapping("/test-log")
-    public String testLog() {
-        log.info("测试日志写入");
-        return "日志测试完成";
-    }
 } 

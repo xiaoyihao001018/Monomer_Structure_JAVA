@@ -120,3 +120,38 @@
   - INFO：重要业务信息
   - DEBUG：调试信息，开发使用
   - TRACE：详细信息，很少使用
+
+## 7. Redis使用
+> Spring Boot集成Redis缓存
+
+### 基础配置
+- **application.yml配置**：
+  ```yaml
+  spring:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+  ```
+
+### RedisUtils工具类使用
+- **设置缓存**：
+  ```java
+  redisUtils.set("key", value);
+  redisUtils.set("key", value, 3600); // 带过期时间（秒）
+  ```
+
+- **获取缓存**：
+  ```java
+  Object value = redisUtils.get("key");
+  ```
+
+- **删除缓存**：
+  ```java
+  redisUtils.delete("key");
+  ```
+
+- **检查key是否存在**：
+  ```java
+  boolean exists = redisUtils.hasKey("key");
+  ```

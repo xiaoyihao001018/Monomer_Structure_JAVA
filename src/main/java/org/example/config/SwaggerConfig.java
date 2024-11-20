@@ -17,7 +17,7 @@ public class SwaggerConfig {
                         .description("Spring Boot项目 API 文档")
                         .version("v1.0")
                         .contact(new Contact()
-                                .name("Your Name")
-                                .email("your.email@example.com")));
+                                .name("ByronXiao")
+                                .email("xiaoyihao001018@gmail.com")));
     }
 } 
